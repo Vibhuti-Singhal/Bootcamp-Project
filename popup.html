@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Detector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>🛡️ Phishing Detector</h1>
+      <a href="reports.html" class="header-link" id="reports-link" target="_blank">📊 View Reports</a>
+    </header>
+
+    <div id="loading" class="loading">
+      <p>Analyzing page...</p>
+    </div>
+
+    <div id="results" class="results hidden">
+      <div class="risk-level">
+        <h2>Risk Level: <span id="risk-level-text"></span></h2>
+        <div class="score-bar">
+          <div id="score-fill" class="score-fill"></div>
+        </div>
+        <p class="score-text">Suspicion Score: <span id="score-value">0</span></p>
+      </div>
+
+      <div class="indicators">
+        <h3>Detected Indicators:</h3>
+        <ul id="indicator-list"></ul>
+      </div>
+
+      <div class="recommendations">
+        <h3>Recommendations:</h3>
+        <p id="recommendation-text"></p>
+      </div>
+
+      <div class="email-info" id="email-info" style="display: none;">
+        <h3>Email Analysis</h3>
+        <p id="email-provider-text"></p>
+      </div>
+    </div>
+
+    <div id="no-results" class="no-results hidden">
+      <p>No analysis available for this page.</p>
+      <p class="small">The extension analyzes pages automatically. Refresh the page if needed.</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

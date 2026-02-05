@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detector - Reports</title>
+    <link rel="stylesheet" href="reports.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Phishing Detector - Reports</h1>
+            <p class="subtitle">Detailed analysis of detected phishing attempts</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="reports">Recent Reports</button>
+            <button class="tab-button" data-tab="statistics">Statistics</button>
+            <button class="tab-button" data-tab="export">Export/Import</button>
+        </nav>
+
+        <!-- Reports Tab -->
+        <section id="reports-tab" class="tab-content active">
+            <div class="controls">
+                <input type="text" id="search-input" placeholder="Search by URL..." class="search-box">
+                <select id="filter-risk" class="filter">
+                    <option value="">All Risk Levels</option>
+                    <option value="high">High Risk</option>
+                    <option value="medium">Medium Risk</option>
+                    <option value="low">Low Risk</option>
+                    <option value="safe">Safe</option>
+                </select>
+                <button id="refresh-btn" class="btn btn-primary">Refresh</button>
+                <button id="clear-btn" class="btn btn-danger">Clear All</button>
+            </div>
+
+            <div id="reports-container" class="reports-list">
+                <div class="loading">Loading reports...</div>
+            </div>
+        </section>
+
+        <!-- Statistics Tab -->
+        <section id="statistics-tab" class="tab-content">
+            <div class="statistics">
+                <div class="stat-card">
+                    <h3>Total Detections</h3>
+                    <p class="stat-value" id="stat-total">0</p>
+                </div>
+
+                <div class="stat-card high">
+                    <h3>High Risk</h3>
+                    <p class="stat-value" id="stat-high">0</p>
+                </div>
+
+                <div class="stat-card medium">
+                    <h3>Medium Risk</h3>
+                    <p class="stat-value" id="stat-medium">0</p>
+                </div>
+
+                <div class="stat-card low">
+                    <h3>Low Risk</h3>
+                    <p class="stat-value" id="stat-low">0</p>
+                </div>
+
+                <div class="stat-card safe">
+                    <h3>Safe</h3>
+                    <p class="stat-value" id="stat-safe">0</p>
+                </div>
+            </div>
+
+            <div class="top-domains">
+                <h3>Most Detected Domains</h3>
+                <ul id="top-domains-list" class="domain-list">
+                    <li class="loading">Loading...</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Export/Import Tab -->
+        <section id="export-tab" class="tab-content">
+            <div class="export-controls">
+                <h3>Export Reports</h3>
+                <p>Save all reports as a JSON file for backup or analysis.</p>
+                <button id="export-btn" class="btn btn-primary">Download as JSON</button>
+
+                <h3 style="margin-top: 30px;">Import Reports</h3>
+                <p>Import previously exported reports.</p>
+                <input type="file" id="import-file" accept=".json" class="file-input">
+                <button id="import-btn" class="btn btn-primary">Import Reports</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Report Detail Modal -->
+    <div id="detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="reports.js"></script>
+</body>
+
+</html>
